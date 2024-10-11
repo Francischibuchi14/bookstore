@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Store</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+        }
+        nav a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+        .search-bar {
+            float: right;
+        }
+        .search-bar input {
+            padding: 0.5em;
+            border: none;
+            border-radius: 4px;
+        }
+        main {
+            padding: 1em;
+        }
+        .book {
+            border: 1px solid #ccc;
+            padding: 1em;
+            margin: 1em 0;
+            display: flex;
+            align-items: center;
+        }
+        .book img {
+            max-width: 100px;
+            margin-right: 1em;
+        }
+        .book-details {
+            flex: 1;
+        }
+        .book-title {
+            font-size: 1.2em;
+            margin: 0;
+        }
+        .book-author, .book-isbn {
+            margin: 0.5em 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#books">Books</a>
+        <a href="#categories">Categories</a>
+        <a href="#contact">Contact</a>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search by title or ISBN">
+        </div>
+    </nav>
+</header>
+
+<main id="bookList">
+    <!-- Books will be displayed here -->
+</main>
+
+<footer>
+    <p>&copy; 2024 Book Store</p>
+</footer>
+
+<script>
+    // Sample book data
+    const books = [
+        { title: 'Book One', author: 'Author One', isbn: '1234567890', cover: 'image/download (1).jpeg' },
+        { title: 'Book Two', author: 'Author Two', isbn: '0987654321', cover: 'image/day.jpeg' },
+        { title: 'Book three', author: 'Author Two', isbn: '0987654321', cover: 'image/mm.jpeg' },
+        { title: 'Book four', author: 'Author Two', isbn: '0987654321', cover: 'image/blue.jpeg' },
+        // Add more books as needed
+    ];
+
+    // Function to display books
+    function displayBooks(bookArray) {
+        const bookList = document.getElementById('bookList');
+        bookList.innerHTML = '';
+        bookArray.forEach(book => {
+            const bookElement = document.createElement('div');
+            bookElement.classList.add('book');
+            bookElement.innerHTML = `
+                <img src="${book.cover}" alt="${book.title} cover">
+                <div class="book-details">
+                    <h3 class="book-title">${book.title}</h3>
+                    <p class="book-author">by ${book.author}</p>
+                    <p class="book-isbn">ISBN: ${book.isbn}</p>
+                </div>
+            `;
+            bookList.appendChild(bookElement);
+        });
+    }
+
+    // Function to handle search
+    function searchBooks() {
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        const filteredBooks = books.filter(book => 
+            book.title.toLowerCase().includes(searchInput) || 
+            book.isbn.includes(searchInput)
+        );
+        displayBooks(filteredBooks);
+    }
+
+    // Event listener for search input
+    document.getElementById('searchInput').addEventListener('input', searchBooks);
+
+    // Display all books on page load
+    displayBooks(books);
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,110 @@
+body{
+    background-image: url(led.jpeg);
+    
+}
+
+
+header{
+    width: 100%;
+    background-color: darkgoldenrod;
+    display: flex;
+    justify-content: center;
+}
+
+
+.logo ul{
+    display: flex;
+    list-style: none;
+    
+}
+
+.logo ul li a{
+    color: white;
+    font-weight: bold;
+    margin: 10px;
+    text-decoration: none;
+}
+.logo ul li a:hover{
+    color: brown;
+    font-weight: bolder;
+    border-bottom: 3px solid black;
+}
+h1 {
+    margin: 0;
+}
+
+#menu {
+    padding: 20px;
+    text-align: center;
+}
+
+.menu-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px auto;
+    padding: 15px;
+    width: 200px;
+    transition: transform .3s;
+}
+
+.menu-item:hover {
+    transform: scale(1.1);
+}
+
+.menu-item h3 {
+    margin: 0;
+}
+
+.menu-item p {
+    color: #555;
+}
+
+.menu-item span {
+    display: block;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e5533d;
+}
+@media (min-width: 768px) {
+    .item{
+        display: flex;
+    }
+}
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    .menu-item {
+        width: 90%; 
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    .menu-item {
+        padding: 10px;
+       
+    }
+
+    button {
+        width: 100%; 
+    }
+}
